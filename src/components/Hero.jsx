@@ -1,51 +1,89 @@
-import { motion } from "framer-motion";
-
-import { styles } from "../styles";
-import { ComputersCanvas } from "./canvas";
+'use client'
+import { useEffect, useState } from 'react'
 
 const Hero = () => {
+  const [text, setText] = useState("Hello, I'm *******")
+  const [animationComplete, setAnimationComplete] = useState(false)
+  const symbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz~!@#$%^&*+_-=|\\:;<>,.?/`"
+  const finalWord = "Matthew"
+
+  useEffect(() => {
+    let position = 0
+    let cycles = 0
+    
+    const interval = setInterval(() => {
+      setText(current => {
+        const prefix = "Hello, I'm "
+        const currentText = current.slice(prefix.length)
+        const newText = currentText.split('').map((char, index) => {
+          if (index < position) return finalWord[index]
+          if (index === position) return symbols[cycles % symbols.length]
+          return '*'
+        }).join('')
+        
+        cycles++
+        if (cycles % symbols.length === 0) {
+          position++
+          if (position >= finalWord.length) {
+            clearInterval(interval)
+            setText(prefix + finalWord)
+            setAnimationComplete(true)
+            return prefix + finalWord
+          }
+        }
+        
+        return prefix + newText
+      })
+    }, 5)
+
+    return () => clearInterval(interval)
+  }, [])
+
   return (
-    <section className={`relative w-full h-screen mx-auto`}>
-      <div
-        className={`absolute inset-0 top-[120px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
-      >
-        <div className='flex flex-col justify-center items-center mt-5'>
-          <div className='w-5 h-5 rounded-full bg-[#915EFF]' />
-          <div className='w-1 sm:h-80 h-40 violet-gradient' />
-        </div>
-
-        <div>
-          <h1 className={`${styles.heroHeadText} text-white`}>
-            Hello, I'm <span className='text-[#915EFF]'>Matthew</span>
-          </h1>
-          <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            I develop software, user <br className='sm:block hidden' />
-            interfaces, and web applications
-          </p>
-        </div>
+    <div style={{ 
+      display: 'flex',
+      justifyContent: 'flex-start',
+      alignItems: 'flex-start',
+      paddingTop: '3vh',
+      paddingLeft: '18vw',
+      minHeight: 'calc(100vh - 96px)',
+      width: '100vw',
+      position: 'relative',
+      left: '50%',
+      transform: 'translateX(-50%)'
+    }}>
+      <div className="flex flex-col gap-0">
+        <h1 className="text-white tracking-tight" 
+            style={{ 
+              fontSize: '6rem',
+              fontFamily: 'Poppins, system-ui, sans-serif',
+              fontWeight: '700',
+              letterSpacing: '-0.02em',
+            }}>
+          Hello, I'm <span style={{
+            color: animationComplete ? '#8BFFC6' : '#ffffff',
+            transition: 'color 1s ease-in-out'
+          }}>
+            {text.slice(10)}
+          </span>
+        </h1>
+        <h2 className="text-white/90 max-w-lg" 
+            style={{ 
+              fontSize: '2rem',
+              fontFamily: 'Poppins, system-ui, sans-serif',
+              fontWeight: '400',
+              lineHeight: '1.4',
+              marginTop: '-65px',
+              opacity: animationComplete ? 1 : 0,
+              transform: `translateY(${animationComplete ? '0' : '20px'})`,
+              transition: 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out',
+            }}>
+          I Specialize in Cyber Security,<br />
+          Develop Software, and Web Applications
+        </h2>
       </div>
+    </div>
+  )
+}
 
-      <ComputersCanvas />
-
-      <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center'>
-        <a href='#about'>
-          <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>
-            <motion.div
-              animate={{
-                y: [0, 24, 0],
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                repeatType: "loop",
-              }}
-              className='w-3 h-3 rounded-full bg-secondary mb-1'
-            />
-          </div>
-        </a>
-      </div>
-    </section>
-  );
-};
-
-export default Hero;
+export default Hero 

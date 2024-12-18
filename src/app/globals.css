@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #1a1a1a;
+  background-image: 
+    radial-gradient(#8bffc620 1px, transparent 1px),
+    linear-gradient(to right, #ffffff03 1px, transparent 1px),
+    linear-gradient(to bottom, #ffffff03 1px, transparent 1px);
+  background-size: 24px 24px, 48px 48px, 48px 48px;
+  min-height: 100vh;
+  color: white;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+  
