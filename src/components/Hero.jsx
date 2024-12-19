@@ -1,42 +1,39 @@
 'use client'
 import { useEffect, useState } from 'react'
+import TerminalText from './TerminalText'
 
 const Hero = () => {
-  const [text, setText] = useState("Hello, I'm *******")
   const [animationComplete, setAnimationComplete] = useState(false)
-  const symbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz~!@#$%^&*+_-=|\\:;<>,.?/`"
-  const finalWord = "Matthew"
+
+  const computerArt = `
+     ____________________________
+    !\\_________________________/!\\
+    !!                         !! \\
+    !!                         !!  \\
+    !!                         !!  ! 
+    !!                         !!  ! 
+    !!                         !!  ! 
+    !!                         !!  !
+    !!                         !!  !
+    !!                         !!  /
+    !!_________________________!! /
+    !/_________________________\\!/
+       __\\_________________/__
+      !_______________________!
+    ________________________
+   /oooo  oooo  oooo  oooo /!
+  /ooooooooooooooooooooooo/ /
+ /ooooooooooooooooooooooo/ /
+/_______________________/_/
+
+  `
 
   useEffect(() => {
-    let position = 0
-    let cycles = 0
-    
-    const interval = setInterval(() => {
-      setText(current => {
-        const prefix = "Hello, I'm "
-        const currentText = current.slice(prefix.length)
-        const newText = currentText.split('').map((char, index) => {
-          if (index < position) return finalWord[index]
-          if (index === position) return symbols[cycles % symbols.length]
-          return '*'
-        }).join('')
-        
-        cycles++
-        if (cycles % symbols.length === 0) {
-          position++
-          if (position >= finalWord.length) {
-            clearInterval(interval)
-            setText(prefix + finalWord)
-            setAnimationComplete(true)
-            return prefix + finalWord
-          }
-        }
-        
-        return prefix + newText
-      })
-    }, 5)
+    const timer = setTimeout(() => {
+      setAnimationComplete(true)
+    }, 500)
 
-    return () => clearInterval(interval)
+    return () => clearTimeout(timer)
   }, [])
 
   return (
@@ -64,7 +61,7 @@ const Hero = () => {
             color: animationComplete ? '#8BFFC6' : '#ffffff',
             transition: 'color 1s ease-in-out'
           }}>
-            {text.slice(10)}
+            Matthew
           </span>
         </h1>
         <h2 className="text-white/90 max-w-lg" 
@@ -81,6 +78,28 @@ const Hero = () => {
           I Specialize in Cyber Security,<br />
           Develop Software, and Web Applications
         </h2>
+        <div style={{
+          position: 'absolute',
+          left: '75%',
+          transform: 'translateX(-50%)',
+          marginTop: '-4rem',
+          width: 'fit-content',
+          position: 'relative'
+        }}>
+          <pre style={{
+            fontFamily: 'monospace',
+            whiteSpace: 'pre',
+            color: '#8BFFC6',
+            fontSize: '35px',
+            lineHeight: '1',
+            letterSpacing: '0',
+            transform: 'scale(1)',
+            transformOrigin: 'center center',
+          }}>
+            {computerArt}
+          </pre>
+          <TerminalText />
+        </div>
       </div>
     </div>
   )

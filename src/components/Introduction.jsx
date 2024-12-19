@@ -32,7 +32,7 @@ const Introduction = () => {
               fontWeight: '700',
               letterSpacing: '-0.02em',
             }}>
-          Introduction
+          Overview
         </h1>
         <h2 className="text-white/90 max-w-lg" 
             style={{ 
@@ -45,7 +45,7 @@ const Introduction = () => {
               transform: `translateY(${animationComplete ? '0' : '20px'})`,
               transition: 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out',
             }}>
-          A Brief Overview of Who I Am and What I Do
+          Passionate about cybersecurity and software development, driven to create innovative solutions while ensuring digital safety
         </h2>
       </div>
     </div>
