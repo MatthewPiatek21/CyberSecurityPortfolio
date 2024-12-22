@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { Github, Linkedin } from 'lucide-react'
 
 const Navbar = ({ currentSection }) => {
@@ -8,6 +8,8 @@ const Navbar = ({ currentSection }) => {
   const [isTypingCommand, setIsTypingCommand] = useState(false)
   const [initialLoad, setInitialLoad] = useState(true)
   const baseText = 'sysadmin@Matthew_Piatek_Portfolio'
+  const typingIntervalRef = useRef(null)
+  const lastSectionRef = useRef(currentSection)
 
   // Handle initial load animation
   useEffect(() => {
@@ -17,12 +19,12 @@ const Navbar = ({ currentSection }) => {
         let currentIndex = 0
         const command = 'cd Home'
         
-        const typingInterval = setInterval(() => {
+        typingIntervalRef.current = setInterval(() => {
           if (currentIndex < command.length) {
             setCommandText(command.slice(0, currentIndex + 1))
             currentIndex++
           } else {
-            clearInterval(typingInterval)
+            clearInterval(typingIntervalRef.current)
             setTimeout(() => {
               setCommandText('')
               setSectionText('Home')
@@ -31,26 +33,37 @@ const Navbar = ({ currentSection }) => {
             }, 100)
           }
         }, 50)
+      }, 1000)
 
-        return () => clearInterval(typingInterval)
-      }, 1000) // Delay before starting the initial cd command
+      return () => {
+        if (typingIntervalRef.current) {
+          clearInterval(typingIntervalRef.current)
+        }
+      }
     }
   }, [])
 
   // Handle subsequent section changes
   useEffect(() => {
-    if (!initialLoad && sectionText !== currentSection) {
+    if (!initialLoad && currentSection !== lastSectionRef.current) {
+      lastSectionRef.current = currentSection
+      
+      // Clear any existing animation
+      if (typingIntervalRef.current) {
+        clearInterval(typingIntervalRef.current)
+      }
+
       setIsTypingCommand(true)
       setCommandText('')
       let currentIndex = 0
       const command = `cd ${currentSection}`
       
-      const typingInterval = setInterval(() => {
+      typingIntervalRef.current = setInterval(() => {
         if (currentIndex < command.length) {
-          setCommandText(command.slice(0, currentIndex + 1))
+          setCommandText(prev => command.slice(0, currentIndex + 1))
           currentIndex++
         } else {
-          clearInterval(typingInterval)
+          clearInterval(typingIntervalRef.current)
           setTimeout(() => {
             setCommandText('')
             setSectionText(currentSection)
@@ -59,9 +72,13 @@ const Navbar = ({ currentSection }) => {
         }
       }, 50)
 
-      return () => clearInterval(typingInterval)
+      return () => {
+        if (typingIntervalRef.current) {
+          clearInterval(typingIntervalRef.current)
+        }
+      }
     }
-  }, [currentSection, initialLoad, sectionText])
+  }, [currentSection, initialLoad])
 
   return (
     <nav style={{ 

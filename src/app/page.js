@@ -7,6 +7,7 @@ import WorkExperience from '@/components/WorkExperience'
 import Projects from '@/components/Projects'
 import Technologies from '@/components/Technologies'
 import ScrollIndicator from '@/components/ScrollIndicator'
+import Contact from '@/components/Contact'
 
 export default function Home() {
   const [currentSection, setCurrentSection] = useState('Home')
@@ -62,6 +63,7 @@ export default function Home() {
         <section id="technologies">
           <Technologies />
         </section>
+        <Contact />
       </div>
     </div>
   )

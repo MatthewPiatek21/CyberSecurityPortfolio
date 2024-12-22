@@ -70,13 +70,10 @@ const Hero = () => {
               fontFamily: 'Poppins, system-ui, sans-serif',
               fontWeight: '400',
               lineHeight: '1.4',
-              marginTop: '-65px',
-              opacity: animationComplete ? 1 : 0,
-              transform: `translateY(${animationComplete ? '0' : '20px'})`,
-              transition: 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out',
+              marginTop: '-65px'
             }}>
           I Specialize in Cyber Security,<br />
-          Develop Software, and Web Applications
+          Software Development, and Web Applications
         </h2>
         <div style={{
           position: 'absolute',
