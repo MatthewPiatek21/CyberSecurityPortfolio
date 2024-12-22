@@ -5,12 +5,12 @@
 @tailwind utilities;
 
 body {
-  background-color: #1a1a1a;
+  background-color: #1a1a1a !important;
   background-image: 
     radial-gradient(#8bffc620 1px, transparent 1px),
     linear-gradient(to right, #ffffff03 1px, transparent 1px),
-    linear-gradient(to bottom, #ffffff03 1px, transparent 1px);
-  background-size: 24px 24px, 48px 48px, 48px 48px;
+    linear-gradient(to bottom, #ffffff03 1px, transparent 1px) !important;
+  background-size: 24px 24px, 48px 48px, 48px 48px !important;
   min-height: 100vh;
   color: white;
   margin: 0;
@@ -19,6 +19,6 @@ body {
 }
 
 * {
-  box-sizing: border-box;
+  box-sizing: border-box !important;
 }
   
