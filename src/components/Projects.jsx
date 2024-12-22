@@ -195,7 +195,6 @@ const ProjectBlocks = () => {
       tags: [
         { name: "react" },
         { name: "javascript" },
-        { name: "tailwind" }
       ],
       source_code_link: "https://github.com/MatthewPiatek21/CyberSecurityPortfolio.git",
     }
