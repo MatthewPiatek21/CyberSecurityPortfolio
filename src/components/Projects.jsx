@@ -21,9 +21,9 @@ const ProjectCard = ({ name, description, image, source_code_link, tags }) => {
     <div
       style={{
         backgroundColor: '#1a1a1a',
-        padding: '1.5625rem',
-        borderRadius: '1rem',
-        width: '450px',
+        padding: '1.4rem',
+        borderRadius: '0.75rem',
+        width: '400px',
         border: '2px solid #8BFFC6',
         transition: 'all 0.3s ease',
         position: 'relative'
@@ -35,7 +35,7 @@ const ProjectCard = ({ name, description, image, source_code_link, tags }) => {
         e.currentTarget.style.transform = 'scale(1)'
       }}
     >
-      <div style={{ position: 'relative', width: '100%', height: '287.5px' }}>
+      <div style={{ position: 'relative', width: '100%', height: '250px' }}>
         {image ? (
           <Image
             src={image}
@@ -59,7 +59,7 @@ const ProjectCard = ({ name, description, image, source_code_link, tags }) => {
           }}>
             <span style={{
               color: '#8BFFC6',
-              fontSize: '2rem',
+              fontSize: '1.6rem',
               fontWeight: '700',
               fontFamily: 'Poppins, system-ui, sans-serif',
               textAlign: 'center'
@@ -113,10 +113,10 @@ const ProjectCard = ({ name, description, image, source_code_link, tags }) => {
         </div>
       </div>
 
-      <div style={{ marginTop: '1.25rem' }}>
+      <div style={{ marginTop: '1.2rem' }}>
         <h3 style={{ 
           color: '#8BFFC6',
-          fontSize: '1.5rem',
+          fontSize: '1.25rem',
           fontWeight: '700',
           fontFamily: 'Poppins, system-ui, sans-serif'
         }}>
@@ -125,7 +125,7 @@ const ProjectCard = ({ name, description, image, source_code_link, tags }) => {
         <p style={{ 
           marginTop: '0.5rem',
           color: '#999999',
-          fontSize: '0.875rem',
+          fontSize: '0.9rem',
           fontFamily: 'Poppins, system-ui, sans-serif',
           lineHeight: '1.6'
         }}>
@@ -161,7 +161,7 @@ const ProjectCard = ({ name, description, image, source_code_link, tags }) => {
               key={tag.name}
               style={{
                 color: tagColors[tag.name.toLowerCase()] || '#8BFFC6',
-                fontSize: '0.875rem',
+                fontSize: '0.9rem',
                 fontFamily: 'Poppins, system-ui, sans-serif',
                 fontWeight: '600',
                 padding: '0.25rem 0',
@@ -202,10 +202,10 @@ const ProjectBlocks = () => {
 
   return (
     <div style={{ 
-      marginTop: '4rem',
+      marginTop: '3rem',
       display: 'flex',
       flexWrap: 'wrap',
-      gap: '2rem',
+      gap: '1.6rem',
       justifyContent: 'flex-start'
     }}>
       {projects.map((project, index) => (
@@ -231,8 +231,8 @@ const Projects = () => {
       display: 'flex',
       justifyContent: 'flex-start',
       alignItems: 'flex-start',
-      paddingLeft: '15vw',
-      paddingTop: '15vh',
+      paddingLeft: '15.5vw',
+      paddingTop: '12vh',
       minHeight: '100vh',
       width: '100vw',
       position: 'relative',
@@ -242,7 +242,7 @@ const Projects = () => {
       <div className="flex flex-col gap-0">
         <div style={{ marginBottom: '0.1rem' }}>
           <span style={{ 
-              fontSize: '20px',
+              fontSize: '16px',
               fontFamily: 'Poppins, system-ui, sans-serif',
               fontWeight: '500',
               letterSpacing: '0.1em',
@@ -253,21 +253,21 @@ const Projects = () => {
         </div>
         <h1 className="text-white tracking-tight" 
             style={{ 
-              fontSize: '6rem',
+              fontSize: '4.8rem',
               fontFamily: 'Poppins, system-ui, sans-serif',
               fontWeight: '700',
               letterSpacing: '-0.02em',
-              marginTop: '-1rem',
+              marginTop: '-0.8rem',
               color: '#8BFFC6'
             }}>
           My Projects
         </h1>
         <h2 style={{ 
-              fontSize: '20px',
+              fontSize: '16px',
               fontFamily: 'Poppins, system-ui, sans-serif',
               fontWeight: '400',
               lineHeight: '1.5',
-              marginTop: '-65px',
+              marginTop: '-52px',
               maxWidth: '650px',
               color: '#999999'
             }}>

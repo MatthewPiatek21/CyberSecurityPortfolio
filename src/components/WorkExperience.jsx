@@ -23,12 +23,12 @@ const ExperienceBlocks = () => {
     <div style={{ marginTop: '4rem' }}>
       <div 
         style={{
-          padding: '2rem',
+          padding: '1.4rem',
           backgroundColor: '#1a1a1a',
           borderRadius: '0.5rem',
           border: '2px solid #8BFFC6',
           transition: 'box-shadow 0.3s ease',
-          maxWidth: '950px',
+          maxWidth: '900px',
           boxShadow: '0 0 0 0 rgba(139, 255, 198, 0)'
         }}
         onMouseEnter={e => {
@@ -42,21 +42,21 @@ const ExperienceBlocks = () => {
           display: 'flex', 
           alignItems: 'flex-start',
           justifyContent: 'space-between',
-          marginBottom: '1.5rem'
+          marginBottom: '1.4rem'
         }}>
           <div>
             <h3 style={{ 
               color: '#8BFFC6', 
-              fontSize: '1.5rem', 
+              fontSize: '1.2rem',
               fontWeight: '500',
-              marginBottom: '0.25rem',
+              marginBottom: '0.3rem',
               fontFamily: 'Poppins, system-ui, sans-serif'
             }}>
               {experience.title}
             </h3>
             <p style={{ 
               color: '#999999', 
-              fontSize: '1.25rem',
+              fontSize: '1.1rem',
               marginBottom: '0.5rem',
               fontFamily: 'Poppins, system-ui, sans-serif'
             }}>
@@ -82,13 +82,13 @@ const ExperienceBlocks = () => {
                 color: '#999999',
                 fontSize: '1rem',
                 fontFamily: 'Poppins, system-ui, sans-serif',
-                marginBottom: '0.75rem',
+                marginBottom: '0.7rem',
                 display: 'flex',
                 alignItems: 'baseline',
                 gap: '1rem'
               }}
             >
-              <span style={{ color: '#8BFFC6', fontSize: '1.2rem' }}>•</span>
+              <span style={{ color: '#8BFFC6', fontSize: '1.1rem' }}>•</span>
               {achievement}
             </div>
           ))}
@@ -114,8 +114,8 @@ const WorkExperience = () => {
       display: 'flex',
       justifyContent: 'flex-start',
       alignItems: 'flex-start',
-      paddingLeft: '15vw',
-      paddingTop: '15vh',
+      paddingLeft: '15.5vw',
+      paddingTop: '12vh',
       minHeight: '100vh',
       width: '100vw',
       position: 'relative',
@@ -125,7 +125,7 @@ const WorkExperience = () => {
       <div className="flex flex-col gap-0">
         <div style={{ marginBottom: '0.1rem' }}>
           <span style={{ 
-              fontSize: '20px',
+              fontSize: '16px',
               fontFamily: 'Poppins, system-ui, sans-serif',
               fontWeight: '500',
               letterSpacing: '0.1em',
@@ -136,21 +136,21 @@ const WorkExperience = () => {
         </div>
         <h1 className="text-white tracking-tight" 
             style={{ 
-              fontSize: '6rem',
+              fontSize: '4.8rem',
               fontFamily: 'Poppins, system-ui, sans-serif',
               fontWeight: '700',
               letterSpacing: '-0.02em',
-              marginTop: '-1rem',
+              marginTop: '-0.8rem',
               color: '#8BFFC6'
             }}>
           Work
         </h1>
         <h2 style={{ 
-              fontSize: '20px',
+              fontSize: '16px',
               fontFamily: 'Poppins, system-ui, sans-serif',
               fontWeight: '400',
               lineHeight: '1.5',
-              marginTop: '-65px',
+              marginTop: '-52px',
               maxWidth: '650px',
               color: '#999999'
             }}>

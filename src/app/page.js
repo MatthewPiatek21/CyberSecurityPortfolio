@@ -28,7 +28,8 @@ export default function Home() {
             'introduction': 'Intro',
             'experience': 'Work_Experience',
             'projects': 'Projects',
-            'technologies': 'Technologies'
+            'technologies': 'Technologies',
+            'contact': 'Contact'
           }
           setCurrentSection(sectionMap[sectionId])
         }
@@ -63,7 +64,9 @@ export default function Home() {
         <section id="technologies">
           <Technologies />
         </section>
-        <Contact />
+        <section id="contact">
+          <Contact />
+        </section>
       </div>
     </div>
   )

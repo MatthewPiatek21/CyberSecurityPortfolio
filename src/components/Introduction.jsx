@@ -42,19 +42,19 @@ const EducationBlocks = () => {
       marginTop: '4rem',
       display: 'grid',
       gridTemplateColumns: 'repeat(2, 1fr)',
-      gap: '1.5rem',
-      maxWidth: '950px'
+      gap: '1.2rem',
+      maxWidth: '800px'
     }}>
       {education.map((item, index) => (
         <div 
           key={index}
           style={{
-            padding: '1.5rem',
+            padding: '1.2rem',
             backgroundColor: '#1a1a1a',
             borderRadius: '0.5rem',
             border: '2px solid #8BFFC6',
             transition: 'box-shadow 0.3s ease',
-            maxWidth: '450px',
+            maxWidth: '380px',
             boxShadow: '0 0 0 0 rgba(139, 255, 198, 0)'
           }}
           onMouseEnter={e => {
@@ -72,24 +72,24 @@ const EducationBlocks = () => {
             <div>
               <h3 style={{ 
                 color: '#8BFFC6', 
-                fontSize: '1.25rem', 
+                fontSize: '1.1rem',
                 fontWeight: '500',
-                marginBottom: '0.25rem',
+                marginBottom: '0.2rem',
                 fontFamily: 'Poppins, system-ui, sans-serif'
               }}>
                 {item.title}
               </h3>
               <p style={{ 
                 color: '#999999', 
-                fontSize: '1.125rem',
-                marginBottom: '0.5rem',
+                fontSize: '1rem',
+                marginBottom: '0.4rem',
                 fontFamily: 'Poppins, system-ui, sans-serif'
               }}>
                 {item.institution}
               </p>
               <p style={{ 
                 color: '#666666', 
-                fontSize: '1rem',
+                fontSize: '0.9rem',
                 fontFamily: 'Poppins, system-ui, sans-serif'
               }}>
                 {item.period}
@@ -121,8 +121,8 @@ const Introduction = () => {
       display: 'flex',
       justifyContent: 'flex-start',
       alignItems: 'flex-start',
-      paddingLeft: '15vw',
-      paddingTop: '15vh',
+      paddingLeft: '15.5vw',
+      paddingTop: '12vh',
       minHeight: '100vh',
       width: '100vw',
       position: 'relative',
@@ -132,7 +132,7 @@ const Introduction = () => {
       <div className="flex flex-col gap-0">
         <div style={{ marginBottom: '0.1rem' }}>
           <span style={{ 
-              fontSize: '20px',
+              fontSize: '16px',
               fontFamily: 'Poppins, system-ui, sans-serif',
               fontWeight: '500',
               letterSpacing: '0.1em',
@@ -143,21 +143,21 @@ const Introduction = () => {
         </div>
         <h1 className="text-white tracking-tight" 
             style={{ 
-              fontSize: '6rem',
+              fontSize: '4.8rem',
               fontFamily: 'Poppins, system-ui, sans-serif',
               fontWeight: '700',
               letterSpacing: '-0.02em',
-              marginTop: '-1rem',
+              marginTop: '-0.8rem',
               color: '#8BFFC6'
             }}>
           Overview
         </h1>
         <h2 style={{ 
-              fontSize: '20px',
+              fontSize: '16px',
               fontFamily: 'Poppins, system-ui, sans-serif',
               fontWeight: '400',
               lineHeight: '1.5',
-              marginTop: '-65px',
+              marginTop: '-52px',
               maxWidth: '650px',
               color: '#999999'
             }}>

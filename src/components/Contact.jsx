@@ -25,19 +25,23 @@ const Contact = () => {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      paddingLeft: '0',
-      paddingTop: '0',
-      minHeight: '80vh',
+      minHeight: '100vh',
+      width: '100%',
       marginTop: '-10vh',
-      width: '100vw',
-      position: 'relative',
-      left: '50%',
-      transform: 'translateX(-50%)'
+      position: 'relative'
     }}>
-      <div className="flex flex-col gap-0 items-center">
+      <div className="flex flex-col gap-0 items-center" 
+           style={{ 
+             marginTop: '-15vh',
+             width: '100%',
+             maxWidth: '1200px',
+             display: 'flex',
+             flexDirection: 'column',
+             alignItems: 'center'
+           }}>
         <div style={{ marginBottom: '0.1rem', textAlign: 'center' }}>
           <span style={{ 
-              fontSize: '20px',
+              fontSize: '16px',
               fontFamily: 'Poppins, system-ui, sans-serif',
               fontWeight: '500',
               letterSpacing: '0.1em',
@@ -48,21 +52,21 @@ const Contact = () => {
         </div>
         <h1 className="text-white tracking-tight text-center" 
             style={{ 
-              fontSize: '6rem',
+              fontSize: '4.8rem',
               fontFamily: 'Poppins, system-ui, sans-serif',
               fontWeight: '700',
               letterSpacing: '-0.02em',
-              marginTop: '-1rem',
+              marginTop: '-0.8rem',
               color: '#8BFFC6'
             }}>
           Get In Touch
         </h1>
         <h2 style={{ 
-              fontSize: '20px',
+              fontSize: '16px',
               fontFamily: 'Poppins, system-ui, sans-serif',
               fontWeight: '400',
               lineHeight: '1.5',
-              marginTop: '-65px',
+              marginTop: '-52px',
               maxWidth: '650px',
               color: '#999999',
               textAlign: 'center'
@@ -70,14 +74,14 @@ const Contact = () => {
           Feel free to reach out through my email, or click the GitHub and LinkedIn links at the top of the page!
         </h2>
 
-        <div style={{ marginTop: '4rem' }}>
+        <div style={{ marginTop: '4rem', width: '100%', maxWidth: '600px', display: 'flex', justifyContent: 'center' }}>
           <div 
             style={{
               padding: '2rem',
               backgroundColor: '#1a1a1a',
               borderRadius: '0.5rem',
               border: '2px solid #8BFFC6',
-              maxWidth: '950px'
+              width: '100%'
             }}
           >
             <div style={{ 

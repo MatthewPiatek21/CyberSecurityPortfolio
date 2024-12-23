@@ -33,34 +33,34 @@ const TechnologyBlocks = () => {
     <div style={{
       marginTop: '2rem',
       display: 'flex',
-      gap: '4rem',
+      gap: '3.2rem',
       alignItems: 'flex-start'
     }}>
       <div style={{
         display: 'flex',
-        gap: '2rem'
+        gap: '1.6rem'
       }}>
         {technologies.map((column, columnIndex) => (
           <div key={columnIndex} style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: '1rem'
+            gap: '0.9rem'
           }}>
             {column.map((tech, techIndex) => (
               <div
                 key={techIndex}
                 style={{
-                  padding: '1rem',
-                  width: '275px',
+                  padding: '0.9rem',
+                  width: '230px',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '1rem',
+                  gap: '0.9rem',
                   transition: 'all 0.3s ease',
                 }}
               >
                 <div style={{
-                  width: '65px',
-                  height: '65px',
+                  width: '52px',
+                  height: '52px',
                   position: 'relative'
                 }}>
                   <Image
@@ -72,7 +72,7 @@ const TechnologyBlocks = () => {
                 </div>
                 <span style={{
                   color: '#999999',
-                  fontSize: '1.5rem',
+                  fontSize: '1.25rem',
                   fontWeight: '500',
                   fontFamily: 'Poppins, system-ui, sans-serif'
                 }}>
@@ -86,9 +86,9 @@ const TechnologyBlocks = () => {
 
       <div style={{
         position: 'relative',
-        width: '600px',
-        height: '600px',
-        marginLeft: '2rem',
+        width: '525px',
+        height: '525px',
+        marginLeft: '1.6rem',
         marginTop: '-4rem'
       }}>
         <Image
@@ -120,8 +120,8 @@ const Technologies = () => {
       display: 'flex',
       justifyContent: 'flex-start',
       alignItems: 'flex-start',
-      paddingLeft: '15vw',
-      paddingTop: '15vh',
+      paddingLeft: '15.5vw',
+      paddingTop: '12vh',
       minHeight: '100vh',
       width: '100vw',
       position: 'relative',
@@ -131,7 +131,7 @@ const Technologies = () => {
       <div className="flex flex-col gap-0">
         <div style={{ marginBottom: '0.1rem' }}>
           <span style={{ 
-              fontSize: '20px',
+              fontSize: '16px',
               fontFamily: 'Poppins, system-ui, sans-serif',
               fontWeight: '500',
               letterSpacing: '0.1em',
@@ -142,21 +142,21 @@ const Technologies = () => {
         </div>
         <h1 className="text-white tracking-tight" 
             style={{ 
-              fontSize: '6rem',
+              fontSize: '4.8rem',
               fontFamily: 'Poppins, system-ui, sans-serif',
               fontWeight: '700',
               letterSpacing: '-0.02em',
-              marginTop: '-1rem',
+              marginTop: '-0.8rem',
               color: '#8BFFC6'
             }}>
           My Stack
         </h1>
         <h2 style={{ 
-              fontSize: '20px',
+              fontSize: '16px',
               fontFamily: 'Poppins, system-ui, sans-serif',
               fontWeight: '400',
               lineHeight: '1.5',
-              marginTop: '-65px',
+              marginTop: '-52px',
               maxWidth: '650px',
               color: '#999999'
             }}>

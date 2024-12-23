@@ -63,13 +63,14 @@ const TerminalText = () => {
   return (
     <div style={{
       position: 'absolute',
-      top: '120px',
-      left: '140px',
+      top: '140px',
+      left: '155px',
       fontFamily: 'monospace',
-      fontSize: '18px',
+      fontSize: '16px',
       color: '#8BFFC6',
       whiteSpace: 'pre',
-      lineHeight: '1.5'
+      lineHeight: '1.5',
+      maxWidth: '180px'
     }}>
       {lines.map((line, i) => (
         <div key={i}>

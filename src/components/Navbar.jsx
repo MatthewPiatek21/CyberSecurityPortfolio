@@ -5,80 +5,44 @@ import { Github, Linkedin } from 'lucide-react'
 const Navbar = ({ currentSection }) => {
   const [sectionText, setSectionText] = useState('~')
   const [commandText, setCommandText] = useState('')
-  const [isTypingCommand, setIsTypingCommand] = useState(false)
-  const [initialLoad, setInitialLoad] = useState(true)
+  const [isTyping, setIsTyping] = useState(false)
   const baseText = 'sysadmin@Matthew_Piatek_Portfolio'
-  const typingIntervalRef = useRef(null)
-  const lastSectionRef = useRef(currentSection)
+  const typingInterval = useRef(null)
 
-  // Handle initial load animation
   useEffect(() => {
-    if (initialLoad) {
-      setTimeout(() => {
-        setIsTypingCommand(true)
-        let currentIndex = 0
-        const command = 'cd Home'
-        
-        typingIntervalRef.current = setInterval(() => {
-          if (currentIndex < command.length) {
-            setCommandText(command.slice(0, currentIndex + 1))
-            currentIndex++
-          } else {
-            clearInterval(typingIntervalRef.current)
-            setTimeout(() => {
-              setCommandText('')
-              setSectionText('Home')
-              setIsTypingCommand(false)
-              setInitialLoad(false)
-            }, 100)
-          }
-        }, 50)
-      }, 1000)
+    // Clear any existing interval
+    if (typingInterval.current) {
+      clearInterval(typingInterval.current)
+    }
 
-      return () => {
-        if (typingIntervalRef.current) {
-          clearInterval(typingIntervalRef.current)
-        }
+    setIsTyping(true)
+    setCommandText('')
+    let fullCommand = `cd ${currentSection}`
+    let currentIndex = 0
+
+    // Start typing animation
+    typingInterval.current = setInterval(() => {
+      if (currentIndex <= fullCommand.length) {
+        setCommandText(fullCommand.slice(0, currentIndex))
+        currentIndex++
+      } else {
+        clearInterval(typingInterval.current)
+        // Wait before completing command
+        setTimeout(() => {
+          setCommandText('')
+          setSectionText(currentSection)
+          setIsTyping(false)
+        }, 100)
+      }
+    }, 50)
+
+    // Cleanup
+    return () => {
+      if (typingInterval.current) {
+        clearInterval(typingInterval.current)
       }
     }
-  }, [])
-
-  // Handle subsequent section changes
-  useEffect(() => {
-    if (!initialLoad && currentSection !== lastSectionRef.current) {
-      lastSectionRef.current = currentSection
-      
-      // Clear any existing animation
-      if (typingIntervalRef.current) {
-        clearInterval(typingIntervalRef.current)
-      }
-
-      setIsTypingCommand(true)
-      setCommandText('')
-      let currentIndex = 0
-      const command = `cd ${currentSection}`
-      
-      typingIntervalRef.current = setInterval(() => {
-        if (currentIndex < command.length) {
-          setCommandText(prev => command.slice(0, currentIndex + 1))
-          currentIndex++
-        } else {
-          clearInterval(typingIntervalRef.current)
-          setTimeout(() => {
-            setCommandText('')
-            setSectionText(currentSection)
-            setIsTypingCommand(false)
-          }, 100)
-        }
-      }, 50)
-
-      return () => {
-        if (typingIntervalRef.current) {
-          clearInterval(typingIntervalRef.current)
-        }
-      }
-    }
-  }, [currentSection, initialLoad])
+  }, [currentSection])
 
   return (
     <nav style={{ 
@@ -91,20 +55,30 @@ const Navbar = ({ currentSection }) => {
     }}>
       <div style={{ 
         color: '#ffffff',
-        fontSize: '16px',
-        padding: '48px 48px 48px 96px',
+        fontSize: '14px',
+        padding: '38.4px 38.4px 38.4px 76.8px',
         fontFamily: '"Ubuntu Mono", "DejaVu Sans Mono", "Lucida Console", monospace',
         position: 'relative',
       }}>
         <code>
-          {baseText} {sectionText} % {commandText}
+          {baseText} {sectionText} % {isTyping && commandText}
+          {isTyping && <span className="cursor">▋</span>}
         </code>
-        <div style={{ position: 'absolute', right: '350px', top: '50%', transform: 'translateY(-50%)', display: 'flex', gap: '4rem' }}>
+        <div style={{ 
+          position: 'absolute', 
+          right: '300px',  // Changed from 350px
+          top: '50%', 
+          transform: 'translateY(-50%)', 
+          display: 'flex', 
+          gap: '4rem',
+          height: '100%',
+          alignItems: 'center'  // Added to center vertically
+        }}>
           <a href="https://github.com/MatthewPiatek21" target="_blank" rel="noopener noreferrer">
-            <Github style={{ color: '#ffffff', width: '35px', height: '35px' }} strokeWidth={1} />
+            <Github style={{ color: '#ffffff', width: '32px', height: '32px' }} strokeWidth={1} />  {/* Increased from 30px */}
           </a>
           <a href="https://www.linkedin.com/in/matthew-piatek-9951591a6/" target="_blank" rel="noopener noreferrer">
-            <Linkedin style={{ color: '#ffffff', width: '35px', height: '35px' }} strokeWidth={1} />
+            <Linkedin style={{ color: '#ffffff', width: '32px', height: '32px' }} strokeWidth={1} />  {/* Increased from 30px */}
           </a>
         </div>
       </div>

@@ -31,9 +31,9 @@ const ScrollIndicator = () => {
       <div style={{
         position: 'absolute',
         left: '12vw',
-        top: '73.9vh',
-        width: '27vw',
-        height: '3.4px',
+        top: '75.3vh',
+        width: '27.5vw',
+        height: '2.85px',
         backgroundColor: '#8BFFC6',
       }} />
 
@@ -41,8 +41,8 @@ const ScrollIndicator = () => {
       <div style={{
         position: 'absolute',
         left: '12vw',
-        top: '73.9vh',
-        height: '31.5vh',
+        top: '75.3vh',
+        height: '30vh',
         width: '3px',
         backgroundColor: '#8BFFC6',
       }} />
