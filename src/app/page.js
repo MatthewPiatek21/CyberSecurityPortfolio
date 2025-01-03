@@ -6,7 +6,6 @@ import Introduction from '@/components/Introduction'
 import WorkExperience from '@/components/WorkExperience'
 import Projects from '@/components/Projects'
 import Technologies from '@/components/Technologies'
-import ScrollIndicator from '@/components/ScrollIndicator'
 import Contact from '@/components/Contact'
 
 export default function Home() {
@@ -47,7 +46,6 @@ export default function Home() {
   return (
     <div className="relative w-full bg-black">
       <Navbar currentSection={currentSection} />
-      <ScrollIndicator />
       <div className="pt-[144px]">
         <section id="home" className="min-h-screen">
           <Hero />

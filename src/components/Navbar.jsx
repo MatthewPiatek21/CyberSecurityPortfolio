@@ -3,11 +3,29 @@ import { useEffect, useState, useRef } from 'react'
 import { Github, Linkedin } from 'lucide-react'
 
 const Navbar = ({ currentSection }) => {
+  const [scale, setScale] = useState(1)
   const [sectionText, setSectionText] = useState('~')
   const [commandText, setCommandText] = useState('')
   const [isTyping, setIsTyping] = useState(false)
   const baseText = 'sysadmin@Matthew_Piatek_Portfolio'
   const typingInterval = useRef(null)
+
+  useEffect(() => {
+    const handleResize = () => {
+      const viewportWidth = window.innerWidth
+      if (viewportWidth <= 768) {
+        setScale(0.7)
+      } else if (viewportWidth <= 1024) {
+        setScale(0.85)
+      } else {
+        setScale(1)
+      }
+    }
+
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   useEffect(() => {
     // Clear any existing interval
@@ -55,30 +73,66 @@ const Navbar = ({ currentSection }) => {
     }}>
       <div style={{ 
         color: '#ffffff',
-        fontSize: '14px',
-        padding: '38.4px 38.4px 38.4px 76.8px',
+        fontSize: `${14 * scale}px`,
+        padding: `${38.4 * scale}px ${38.4 * scale}px ${38.4 * scale}px ${76.8 * scale}px`,
         fontFamily: '"Ubuntu Mono", "DejaVu Sans Mono", "Lucida Console", monospace',
         position: 'relative',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        minHeight: '77px',
       }}>
-        <code>
-          {baseText} {sectionText} % {isTyping && commandText}
-          {isTyping && <span className="cursor">▋</span>}
-        </code>
         <div style={{ 
-          position: 'absolute', 
-          right: '300px',  // Changed from 350px
-          top: '50%', 
-          transform: 'translateY(-50%)', 
-          display: 'flex', 
-          gap: '4rem',
-          height: '100%',
-          alignItems: 'center'  // Added to center vertically
+          maxWidth: '70%',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap'
         }}>
-          <a href="https://github.com/MatthewPiatek21" target="_blank" rel="noopener noreferrer">
-            <Github style={{ color: '#ffffff', width: '32px', height: '32px' }} strokeWidth={1} />  {/* Increased from 30px */}
+          <code>
+            {baseText} {sectionText} % {isTyping && commandText}
+            {isTyping && <span className="cursor">▋</span>}
+          </code>
+        </div>
+        <div style={{ 
+          display: 'flex', 
+          gap: `${3 * scale}rem`,
+          marginLeft: '2rem',
+          position: 'absolute',
+          right: `${12 * scale}rem`,
+          top: '50%',
+          transform: 'translateY(-50%)'
+        }}>
+          <a href="https://github.com/MatthewPiatek21" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             style={{
+               display: 'flex',
+               alignItems: 'center'
+             }}>
+            <Github 
+              style={{ 
+                color: '#ffffff', 
+                width: `${28 * scale}px`,
+                height: `${28 * scale}px` 
+              }} 
+              strokeWidth={1} 
+            />
           </a>
-          <a href="https://www.linkedin.com/in/matthew-piatek-9951591a6/" target="_blank" rel="noopener noreferrer">
-            <Linkedin style={{ color: '#ffffff', width: '32px', height: '32px' }} strokeWidth={1} />  {/* Increased from 30px */}
+          <a href="https://www.linkedin.com/in/matthew-piatek-9951591a6/" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             style={{
+               display: 'flex',
+               alignItems: 'center'
+             }}>
+            <Linkedin 
+              style={{ 
+                color: '#ffffff', 
+                width: `${28 * scale}px`,
+                height: `${28 * scale}px` 
+              }} 
+              strokeWidth={1} 
+            />
           </a>
         </div>
       </div>
